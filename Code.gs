@@ -6,7 +6,7 @@ function onEdit() {
 
 
   // Kiểm tra chỉnh sửa trong cột Trạng thái
-  if (col == columnIndexTT) { 
+  if (col == columnIndexTT & sheet.getRange(r.getRow(), 1).getValue()!="") { 
     var status = r.getValue();
     var timestampColumn = getTimestampColumn(status);
     
