@@ -2,7 +2,7 @@ function onEdit() {
   var sheet = SpreadsheetApp.getActiveSheet();
   var r = sheet.getActiveCell();
   var col = r.getColumn();
-  var columnIndexTT = getColumnIndex();
+  var columnIndexTT = getColumnByName(columnName= "Trạng thái")
 
 
   // Kiểm tra chỉnh sửa trong cột Trạng thái
@@ -19,19 +19,8 @@ function onEdit() {
   }
 }
 }
-// Trả về thứ tự cột Trạng thái
-function getColumnIndex() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var headers = sheet.getRange(2, 1, 1, sheet.getLastColumn()).getValues()[0];
-  
-  for (var i = 0; i < headers.length; i++) {
-    if (headers[i] === "Trạng thái") { // Thay "Trạng thái" bằng tên của cột L nếu khác
-      var columnIndex = i + 1; // Cột L có thứ tự là i + 1 (A=1, B=2, ..., L=i+1)
-      return columnIndex
-      break;
-    }
-  }
-}
+
+
 // Hàm trả về số cột của Timestamp tương ứng với trạng thái
 function getTimestampColumn(status) {
       return getColumnByName("Timestamp "+status);
